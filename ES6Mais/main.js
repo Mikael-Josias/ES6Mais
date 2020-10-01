@@ -1,17 +1,9 @@
-const arr = [1, 2, 3, 4, 5, 6];
-
-const newArr = arr.map(item => item * 2);
-
-console.log(newArr);
-
-// São a mesma coisa;
-function teste(){
-
+function soma(a = 0, b = 0){
+    return a + b;
 }
 
-const teste = () => {
+console.log(soma(1));
 
-}
-// mas o const não é recomendado;
+console.log(soma(7, 9));
 
-const teste2 = () => ({ nome: 'Diego' });
+const soma2 = (a =0, b =0) => (a + b);
