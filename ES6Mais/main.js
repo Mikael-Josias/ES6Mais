@@ -1,9 +1,25 @@
-function soma(a = 0, b = 0){
-    return a + b;
+const usuario = {
+    nome: "Diego",
+    idade: 23,
+    endereco: {
+        cidade: "Rio do Sul",
+        estado: "sc"
+    },
+};
+
+console.log(usuario);
+
+//Desestruturação Abaixo
+
+const {nome, idade, endereco: {cidade, estado}} = usuario;
+
+console.log(nome);
+console.log(idade);
+console.log(cidade);
+console.log(estado);
+
+
+
+function mostraNome({nome, idade, endereco: {cidade, estado}}){
+    console.log(nome);
 }
-
-console.log(soma(1));
-
-console.log(soma(7, 9));
-
-const soma2 = (a =0, b =0) => (a + b);

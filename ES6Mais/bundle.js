@@ -1,16 +1,30 @@
 "use strict";
 
-function soma() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-  return a + b;
-}
-
-console.log(soma(1));
-console.log(soma(7, 9));
-
-var soma2 = function soma2() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-  return a + b;
+var usuario = {
+  nome: "Diego",
+  idade: 23,
+  endereco: {
+    cidade: "Rio do Sul",
+    estado: "sc"
+  }
 };
+console.log(usuario); //Desestruturação Abaixo
+
+var nome = usuario.nome,
+    idade = usuario.idade,
+    _usuario$endereco = usuario.endereco,
+    cidade = _usuario$endereco.cidade,
+    estado = _usuario$endereco.estado;
+console.log(nome);
+console.log(idade);
+console.log(cidade);
+console.log(estado);
+
+function mostraNome(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade,
+      _ref$endereco = _ref.endereco,
+      cidade = _ref$endereco.cidade,
+      estado = _ref$endereco.estado;
+  console.log(nome);
+}
