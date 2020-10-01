@@ -1,29 +1,17 @@
 const arr = [1, 2, 3, 4, 5, 6];
 
-// Percorre todo o vetor item por item;
-const newArr = arr.map(function(item, index){
-    return item * 2 + index;
-});
+const newArr = arr.map(item => item * 2);
 
 console.log(newArr);
 
-// Soma todos os item do array
-const redArr = arr.reduce(function(total, next){
-    return total + next;
-});
+// São a mesma coisa;
+function teste(){
 
-console.log(redArr);
+}
 
-// Filtra, e obrigatoriamente deve retornar true ou false;
-const filterArr = arr.filter(function(item){
-    return item % 2 == 0;
-});
+const teste = () => {
 
-console.log(filterArr);
+}
+// mas o const não é recomendado;
 
-// Procura um item dentro do array;
-const findArr = arr.find(function(item){
-    return item === 4;
-});
-
-console.log(findArr);
+const teste2 = () => ({ nome: 'Diego' });
