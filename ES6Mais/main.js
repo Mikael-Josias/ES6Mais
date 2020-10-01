@@ -1,39 +1,24 @@
-class List{
-    constructor(){
-        this.data = [];
-    }
+const a = 1;
+// Não pode ter o valor reatribuido;
 
-    add(data){
-        this.data.push(data);
-        console.log(this.data);
+
+const usuario = {
+    nome: "diego",
+}
+// Mas pode mutar a constante
+
+usuario.nome = "Mikael"
+
+
+// Let é usado como váriavel de escopo;
+function teste(x){
+    let y =2;
+
+    if(x > 5){
+        let = 4;
+        console.log(x, y);
+        
     }
 }
 
-class TodoList extends List{
-    constructor(){
-        super();
-
-        this.usuario = 'Diego';
-    }
-
-    mostraUsuario(){
-        console.log(this.usuario);
-    }
-}
-
-var minhaLista = new TodoList();
-
-document.getElementById('novoTodo').onclick = function(){
-    minhaLista.add('NovoTodo');
-}
-
-
-//////////////////////////////////////////////////
-
-class Matematica{
-    static soma(a, b){
-        return a + b;
-    }
-}
-
-console.log(Matematica.soma(1, 2));
+console.log(teste(19));
