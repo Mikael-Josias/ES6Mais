@@ -1,24 +1,29 @@
-const a = 1;
-// Não pode ter o valor reatribuido;
+const arr = [1, 2, 3, 4, 5, 6];
 
+// Percorre todo o vetor item por item;
+const newArr = arr.map(function(item, index){
+    return item * 2 + index;
+});
 
-const usuario = {
-    nome: "diego",
-}
-// Mas pode mutar a constante
+console.log(newArr);
 
-usuario.nome = "Mikael"
+// Soma todos os item do array
+const redArr = arr.reduce(function(total, next){
+    return total + next;
+});
 
+console.log(redArr);
 
-// Let é usado como váriavel de escopo;
-function teste(x){
-    let y =2;
+// Filtra, e obrigatoriamente deve retornar true ou false;
+const filterArr = arr.filter(function(item){
+    return item % 2 == 0;
+});
 
-    if(x > 5){
-        let = 4;
-        console.log(x, y);
-        
-    }
-}
+console.log(filterArr);
 
-console.log(teste(19));
+// Procura um item dentro do array;
+const findArr = arr.find(function(item){
+    return item === 4;
+});
+
+console.log(findArr);
