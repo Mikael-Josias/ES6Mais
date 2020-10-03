@@ -1,20 +1,30 @@
-const empresa = {  
-    nome: 'Rocketseat',  
+const arr = [1, 2, 3, 4, 5, 6];
+
+const [x, ...y] = arr;
+
+console.log(x, y);
+
+
+function soma(...params){
+    return params.reduce((total, next) => (total + next))
+}
+
+console.log(soma(1,2,3,4,5,6));
+//
+//
+const usuario = {  
+    nome: 'Diego',  
+    idade: 23,  
     endereco: {    
         cidade: 'Rio do Sul',    
-        estado: 'SC',  
+        uf: 'SC',    
+        pais: 'Brasil',  
     }
 };
 
-const {nome, endereco: {cidade, estado}} = empresa;
+var usuario2 = {...usuario, nome: 'Gabriel'};
 
-console.log(nome);
-console.log(cidade);
-console.log(estado);
-//
-//
-function mostraInfo({nome, idade}){
-    return `${nome} tem ${idade} anos.`;
-}
+var usuario3 = {...usuario, endereco: {cidade: 'Lontras'}};
 
-mostraInfo({nome: "Diego", idade: 23});
+console.log(usuario2);
+console.log(usuario3);
