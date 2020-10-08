@@ -1,10 +1,13 @@
+import api from './api';
+
 class App {
     constructor(){
         this.repositories = [];
 
         this.formEl = document.getElementById('repo-form');
         this.listEl = document.getElementById('repo-list');
-    
+        this.inputEl = document.querySelector('input[name=repository]');
+
         this.registerHandles();
     }
 
@@ -12,16 +15,27 @@ class App {
         this.formEl.onsubmit = event => this.addRepositories(event);
     }
 
-    addRepositories(event){
+    async addRepositories(event){
         event.preventDefault();
 
+        const repoInput = this.inputEl.value;
+
+        if(repoInput.length === 0)
+            return;
+        
+        console.log(repoInput);
+        const response = await api.get(`/repos/${repoInput}`);
+
+        const {name, description, html_url, avatar_url} = response;
+
         this.repositories.push({
-            name: 'Rocketseat.com.br',
-            description: 'Tire a sua idéia do papel, e dê vida a sua startup',
-            avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?v=4',
-            html_url: 'http://github.com/rockeseat/rockeseat.com.br',
+            name,
+            description,
+            avatar_url,
+            html_url,
         });
 
+        this.inputEl.value = '';
         this.render();
     }
 
@@ -33,13 +47,14 @@ class App {
             imgEl.setAttribute('src', repo.avatar_url);
 
             let titleEl = document.createElement('strong');
-            titleEl.appendChild(document.createTextNode('repo.name'));
+            titleEl.appendChild(document.createTextNode(repo.name));
 
             let descriptionEl = document.createElement('p');
             descriptionEl.appendChild(document.createTextNode(repo.description));
 
             let linkEl = document.createElement('a');
             linkEl.setAttribute('target', '_blank');
+            linkEl.setAttribute('href', repo.html_url);
             linkEl.appendChild(document.createTextNode('Acessar'));
 
             let listItemEl = document.createElement('li');
